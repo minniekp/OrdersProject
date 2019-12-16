@@ -12,6 +12,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OrdersComponent } from './orders/orders.component';
 import { DropdownModule } from 'primeng/dropdown';
 import {TableModule} from 'primeng/table';
+import { CustomerSelectorService } from './customer-selector.service';
+import { OrderResultsService } from './order-results.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import {TableModule} from 'primeng/table';
     DropdownModule,
     TableModule
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, CustomerSelectorService, OrderResultsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
