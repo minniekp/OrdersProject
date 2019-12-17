@@ -1,8 +1,8 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { OrderResultsService } from '../order-results.service';
 import { Message } from 'primeng/api';
-import { IOrder } from '../interface';
-import { Observable } from 'rxjs';
+import { Order } from '../models/order.model';
+
 
 @Component({
   selector: 'app-orders',
@@ -11,8 +11,8 @@ import { Observable } from 'rxjs';
 })
 export class OrdersComponent implements OnInit {
 
-  colHeaderOrders: any[];
-  orders: IOrder[] = [];
+  // colHeaderOrders: any[];
+  orders: Order[] = [];
   errormsgs: Message[] = [];
   
   
@@ -35,7 +35,7 @@ export class OrdersComponent implements OnInit {
   }
 
   loadData(){
-      this.orderResultsService.getOrderResult().subscribe((data: IOrder[]) =>   {        // this.orders = Object.keys(data).map(key => data[key])
+      this.orderResultsService.getOrderResult().subscribe((data) =>   {        // this.orders = Object.keys(data).map(key => data[key])
           this.orders = data;
           console.log("inside component", this.orders);   
       }), error => {
