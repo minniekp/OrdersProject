@@ -5,7 +5,7 @@ export class Item implements Deserializable {
     public id: string;
     public name: string;
     public quantity: number;
-    public total_price: Tprice[];
+    public total_price: Tprice;
 
 
     deserialize(input: any): this {
@@ -13,7 +13,7 @@ export class Item implements Deserializable {
         Object.assign(this, input);
     
         // Iterate over all prices for our user and map them to a proper `Tprice` model
-        this.total_price = input.total_price.map(tprice => new Tprice().deserialize(tprice));
+        this.total_price =  new Tprice().deserialize(input.total_price);
     
         return this;
     }

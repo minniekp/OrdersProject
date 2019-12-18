@@ -14,12 +14,14 @@ import { DropdownModule } from 'primeng/dropdown';
 import {TableModule} from 'primeng/table';
 import { CustomerSelectorService } from './customer-selector.service';
 import { OrderResultsService } from './order-results.service';
+import { ValuesArrayPipe } from './values-array.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerComponent,
-    OrdersComponent
+    OrdersComponent,
+    ValuesArrayPipe
   ],
   imports: [
     BrowserModule,

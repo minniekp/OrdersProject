@@ -4,9 +4,9 @@
 <p-dropdown [options]="customers" formControlName="selectedCustomers" placeholder="Select a Customer">
 </p-dropdown>
 <label for="date">Start Date</label>
-<p-calendar formControlName="startDate"></p-calendar>
+<p-calendar formControlName="startDate" [showIcon]="true"></p-calendar>
 <label for="date">End Date</label>
-<p-calendar formControlName="endDate"></p-calendar>
+<p-calendar formControlName="endDate" [showIcon]="true"></p-calendar>
 </div>
 <button (click)= "selectCustomer()"> submit </button>
 </form>

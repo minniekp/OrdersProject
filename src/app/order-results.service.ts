@@ -30,7 +30,11 @@ export class OrderResultsService {
   getOrderResult(): Observable <Order[]>{
     this.getSubmitCriteria();
     return this.http.get<Order[]>(this.url, this.submitCriteria).pipe(
-      map(data => data.map(data => new Order().deserialize(data))),
+      map(data => {
+        return data.map(data => {
+          return new Order().deserialize(data)
+        })
+      }),
       catchError(this.handleError('getOrderResult',[]))
     );
     

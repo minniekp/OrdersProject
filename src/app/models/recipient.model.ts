@@ -1,4 +1,4 @@
-export class Recepient {
+export class Recipient {
     public name: string;
     public email: string;
 

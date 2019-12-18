@@ -12,7 +12,7 @@ import { Order } from '../models/order.model';
 export class OrdersComponent implements OnInit {
 
   // colHeaderOrders: any[];
-  orders: Order[] = [];
+  orders: any = [];
   errormsgs: Message[] = [];
   
   

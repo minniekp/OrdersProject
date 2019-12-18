@@ -1,4 +1,4 @@
-import { Recepient.Model } from './recepient.model';
+import { Recepient.Model } from './recipient.model';
 
 describe('Recepient.Model', () => {
   it('should create an instance', () => {
