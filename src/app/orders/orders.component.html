@@ -8,12 +8,14 @@
         {{orders.charge_customer.currency}}
     </div>
     <div class="offset-sm-2 offset-md-2 offset-lg-2 col-sm-4 col-md-4 col-lg-4">
-        <strong>Number of Orders:</strong>{{orders.length}}
+        <strong>Number of Orders:</strong>{{this.orders.length}}
     </div>
 </div>
 
+
+
 <div *ngFor="let order of orders">
-    <!-- <div *ngFor="let x of order.recipient | valuesArray"> -->
+   
     <div>
         <strong>Recipient Name:</strong>{{order.recipient.name}}
         <strong>Recipient Email Address:</strong>{{order.recipient.email}}
