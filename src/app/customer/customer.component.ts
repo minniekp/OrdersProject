@@ -23,6 +23,12 @@ export class CustomerComponent implements OnInit {
   toDate: Date;
   fromDate: Date;
   dataJson: any;
+  days:any;
+  todateSec:any;
+  fromdateSec:any;
+  millisecondsPerDay:any;
+  diff:any;
+  weeks:any;
   
   constructor(private customerService:  CustomerSelectorService, private formBuilder: FormBuilder,
     private datepipe: DatePipe, private orderService: OrderResultsService,
@@ -60,6 +66,47 @@ export class CustomerComponent implements OnInit {
     this.orderService.setSubmitCriteria(this.dataJson);
     this.router.navigate(['/orders']);
 
+  }
+
+  onKeyUpfromdate(event: any) {
+    this.fromDate = event.target.value;
+    console.log(this.fromDate);
+    this.todateSec = new Date(this.toDate);
+    this.fromdateSec = new Date(this.fromDate);
+     
+    if (this.todateSec < this.fromdateSec)
+    alert('To date must be greater that from date!');
+        
+     
+    // Calculate days between dates
+    this.millisecondsPerDay = 86400 * 1000; // Day in milliseconds
+    this.fromdateSec.setHours(0,0,0,1); // Start just after midnight
+    this.todateSec.setHours(23,59,59,999); // End just before midnight
+    this.diff = this.todateSec - this.fromdateSec; // Milliseconds between datetime objects 
+    this.days = Math.ceil(this.diff / this.millisecondsPerDay);
+     
+    
+         
+    }
+     
+    onKeyUptoDate(event: any) {
+    this.toDate = event.target.value;
+    console.log(this.toDate);
+    
+    this.todateSec = new Date(this.toDate);
+    this.fromdateSec = new Date(this.fromDate);
+     
+    if (this.todateSec < this.fromdateSec)
+    alert('To date must be grater that from date!');
+     
+    // Calculate days between dates
+    this.millisecondsPerDay = 86400 * 1000; // Day in milliseconds
+    this.fromdateSec.setHours(0, 0, 0, 1); // Start just after midnight
+    this.todateSec.setHours(23, 59, 59, 999); // End just before midnight
+    this.diff = this.todateSec - this.fromdateSec; // Milliseconds between datetime objects 
+    this.days = Math.ceil(this.diff / this.millisecondsPerDay);
+      
+      
   }
 
 }

@@ -1,47 +1,40 @@
-<div class="row">
+<p-panel header="Summary" [toggleable]="true" [style]="{'margin-bottom':'20px'}" >
+    <div class="row">
+      
+        <div class="offset-sm-2 offset-md-2 offset-lg-2 col-sm-4 col-md-4 col-lg-4">
+            <strong>Total Number of Days:</strong>
+        </div>
+        <div class="offset-sm-2 offset-md-2 offset-lg-2 col-sm-4 col-md-4 col-lg-4">
+            <strong>Total Amount to Invoice:</strong>{{this.chargeCustomer}}-{{this.cur}}
+           
+        </div>
+        <div class="offset-sm-2 offset-md-2 offset-lg-2 col-sm-4 col-md-4 col-lg-4">
+            <strong>Number of Orders:</strong>{{this.size}}
+        </div>
     
-    <div class="offset-sm-2 offset-md-2 offset-lg-2 col-sm-4 col-md-4 col-lg-4">
-        <strong>Total Number of Days:</strong>
     </div>
-    <div class="offset-sm-2 offset-md-2 offset-lg-2 col-sm-4 col-md-4 col-lg-4">
-        <strong>Total Amount to Invoice:</strong>{{orders.charge_customer.total_price}}-
-        {{orders.charge_customer.currency}}
-    </div>
-    <div class="offset-sm-2 offset-md-2 offset-lg-2 col-sm-4 col-md-4 col-lg-4">
-        <strong>Number of Orders:</strong>{{this.orders.length}}
-    </div>
-</div>
-
-
-
-<div *ngFor="let order of orders">
-   
-    <div>
-        <strong>Recipient Name:</strong>{{order.recipient.name}}
-        <strong>Recipient Email Address:</strong>{{order.recipient.email}}
-    </div>
-    <div *ngFor="let y of order.items | valuesArray">
-        <strong>Item Id:</strong>{{y.id}}
-        <strong>Item Name:</strong>{{y.name}}
-    </div>
-    <div>
-        <strong>Time when order was made:</strong>{{order.created_at}}
-    </div>
+    </p-panel>
     
+    <p-panel header="List of All Orders" [toggleable]="true" [style]="{'margin-bottom':'20px'}">
+    <div style='margin-bottom: 30px' *ngFor="let order of orders">
         <div>
-        <strong>Courier Name:</strong>{{order.delivery.courier}}
-        <strong>Courier Method:</strong>{{order.delivery.method}}
-    </div>
-    
+            <strong>Recipient Name:</strong>{{order.recipient.name}}
+            <strong>Recipient Email Address:</strong>{{order.recipient.email}}
+        </div>
+        <div *ngFor="let y of order.items | valuesArray">
+            <strong>Item Id:</strong>{{y.id}}
+            <strong>Item Name:</strong>{{y.name}}
+        </div>
         <div>
-        <strong>Total Price of the Order:</strong>{{order.charge_customer.total_price}}-
-        {{order.charge_customer.currency}}
+            <strong>Time when order was made:</strong>{{order.created_at}}
+        </div>
+        <div>
+            <strong>Courier Name:</strong>{{order.delivery.courier}}
+            <strong>Courier Method:</strong>{{order.delivery.method}}
+        </div>
+        <div>
+            <strong>Total Price of the Order:</strong>{{order.charge_customer.total_price}}-
+            {{order.charge_customer.currency}}
+        </div>
     </div>
-</div>
-
-
-
-
-
-
-
+    </p-panel>

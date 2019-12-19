@@ -1,13 +1,27 @@
-<form [formGroup] = "form">
-<div class="ui-g-12 form-group">
-<label for="customer">Customers</label>
-<p-dropdown [options]="customers" formControlName="selectedCustomers" placeholder="Select a Customer">
-</p-dropdown>
-<label for="date">Start Date</label>
-<p-calendar formControlName="startDate" [showIcon]="true"></p-calendar>
-<label for="date">End Date</label>
-<p-calendar formControlName="endDate" [showIcon]="true"></p-calendar>
-</div>
-<button (click)= "selectCustomer()"> submit </button>
-</form>
-
+<p-panel header="Customer Selector">
+    <form [formGroup] = "form">
+      
+    <div class="ui-g-12 form-group">
+            <strong>Customers:</strong> 
+    <p-dropdown [style]="{'margin-left': '5px'}" [options]="customers" formControlName="selectedCustomers" placeholder="Select a Customer">
+    </p-dropdown>
+    
+    <div class="form-group" style="width:200px;align-items: center;margin-top: 30px;">
+            <strong>From date : </strong>
+            <input type="date" [(value)]="fromDate" class="form-control" (change)="onKeyUpfromdate($event)" />
+            </div>
+             
+            <div class="form-group" style="width:200px;align-items: center; margin-top: 30px;">
+                    <strong>To date : </strong>
+            <input type="date" [(value)]="toDate" class="form-control" (change)="onKeyUptoDate($event)" />
+            </div>
+           
+            <div class="form-group" style="width:200px;margin-top: 30px;">
+           <strong>Total Days :</strong>
+            <input type="text" name="date" class="form-control" [(value)]="days" readonly />
+            </div>
+    
+    </div>
+    <p-button [style]="{'margin-top': '20px'}" label="Submit" (click)= "selectCustomer()"></p-button>
+    </form>
+    </p-panel>

@@ -15,6 +15,8 @@ import {TableModule} from 'primeng/table';
 import { CustomerSelectorService } from './customer-selector.service';
 import { OrderResultsService } from './order-results.service';
 import { ValuesArrayPipe } from './values-array.pipe';
+import {PanelModule} from 'primeng/panel';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ValuesArrayPipe } from './values-array.pipe';
     CalendarModule,
     BrowserAnimationsModule,
     DropdownModule,
-    TableModule
+    TableModule,
+    PanelModule,
+    ButtonModule
   ],
   providers: [DatePipe, CustomerSelectorService, OrderResultsService],
   bootstrap: [AppComponent]
